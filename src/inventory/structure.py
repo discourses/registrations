@@ -1,3 +1,4 @@
+"""Module structure.py"""
 
 import pandas as pd
 
@@ -5,6 +6,10 @@ import src.functions.nodes
 
 
 class Structure:
+    """
+
+    Structure
+    """
 
     def __init__(self, metrics: pd.DataFrame):
         """
