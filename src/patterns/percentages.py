@@ -28,7 +28,7 @@ class Percentages:
         # percentages
         percentages = self.__frequencies.copy()
         percentages = percentages.assign(
-            active=(100 * percentages['active']/percentages['all']),
-            dissolved=(100 * percentages['dissolved']/percentages['all']))
+            active = 100 * percentages['active']/percentages['all'],
+            dissolved = 100 * percentages['dissolved']/percentages['all'])
 
         return percentages
