@@ -1,7 +1,5 @@
 """Module patterns.py"""
 
-import os
-
 import pandas as pd
 
 import src.distributions.graphing
