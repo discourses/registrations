@@ -7,6 +7,10 @@ import src.functions.objects
 
 
 class Persist:
+    """
+
+    Persist
+    """
 
     def __init__(self):
         """
