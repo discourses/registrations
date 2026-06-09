@@ -22,7 +22,7 @@ def main():
 
     # the raw data
     data: pd.DataFrame = source.exc(cycle=args.cycle)
-    logger.info(data)
+    data.info()
 
     # distributions
     src.distributions.interface.Interface(data=data, references=references).exc()
@@ -38,6 +38,9 @@ def main():
         src.capita.interface.Interface(data=data, clients=clients).exc()
     else:
         src.capita.interface.Interface(data=source.exc(cycle='annual'), clients=clients)
+
+    # transfer
+    src.transfer.interface.Interface(service=service, clients=clients).exc()
 
     # cache
     src.functions.cache.Cache().exc()
@@ -63,6 +66,7 @@ if __name__ == '__main__':
     import src.inventory.interface
     import src.references.interface
     import src.source.interface
+    import src.transfer.interface
     import src.specific
 
     specific = src.specific.Specific()
