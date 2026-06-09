@@ -1,0 +1,14 @@
+{
+  "capita": {
+    "desc": "The cessations per capita and registrations per capita."
+  },
+  "distributions": {
+    "desc": "The distributions of frequencies & percentages per industry sector w.r.t (with respect to) the standard industrial classification delineations."
+  },
+  "inventory": {
+    "desc": "Company registrations per year, and per sector."
+  },
+  "patterns": {
+    "desc": "The frequencies and percentages by company status, sector, year."
+  }
+}
