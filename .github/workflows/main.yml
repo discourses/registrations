@@ -1,4 +1,4 @@
-name: 'Active Firms'
+name: 'Registrations'
 
 on: [push]
 
