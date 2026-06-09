@@ -1,7 +1,5 @@
 """Module interface.py"""
 
-import os
-
 import pandas as pd
 
 import src.patterns.frequencies
