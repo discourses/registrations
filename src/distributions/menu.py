@@ -6,6 +6,7 @@ import pathlib
 
 import pandas as pd
 
+import config
 import src.functions.objects
 import src.references.interface as sri
 
@@ -22,8 +23,9 @@ class Menu:
         :param references:
         """
 
-        self.__objects = src.functions.objects.Objects()
+        self.__configurations = config.Config()
 
+        # descriptions
         desc = references.desc()
         self.__sections: pd.DataFrame = desc.loc[
             desc['level_heading'].str.lower() == 'section', ['description', 'section']].drop_duplicates()
@@ -46,12 +48,15 @@ class Menu:
         # nodes
         nodes = menu.to_dict(orient='records')
 
-        return self.__objects.write(nodes=nodes, path=attributes.get('path'))
+        return src.functions.objects.Objects().write(nodes=nodes, path=attributes.get('path'))
 
-    def exc(self, attributes: dict) -> str:
+    def exc(self) -> str:
         """
 
         :return:
         """
+
+        attributes = {'source': self.__configurations.distributions_,
+                      'path': os.path.join(self.__configurations.distributions_, 'menu.json')}
 
         return self.__menu(attributes=attributes)
