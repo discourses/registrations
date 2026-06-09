@@ -53,4 +53,4 @@ class Interface:
         __nodes = dask.compute(computations)[0]
 
         self.__objects.write(
-            nodes=__nodes, path=os.path.join(self.__configurations.inventory_, f'inventory.json'))
+            nodes=__nodes, path=os.path.join(self.__configurations.inventory_, 'inventory.json'))
