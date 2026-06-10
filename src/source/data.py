@@ -45,8 +45,8 @@ class Data:
         data = data[list(self.__dtype.keys())]
 
         data = data.assign(
-            date_of_creation=pd.to_datetime(data['date_of_creation'], format='%Y-%m-%d'),
-            date_of_cessation=pd.to_datetime(data['date_of_cessation'], format='%Y-%m-%d'))
+            date_of_creation=pd.to_datetime(data['date_of_creation'], format='%Y-%m-%d', errors='coerce'),
+            date_of_cessation=pd.to_datetime(data['date_of_cessation'], format='%Y-%m-%d', errors='coerce'))
 
         data.reset_index(drop=True, inplace=True)
         data.sort_values(by='date_of_creation', ascending=True, inplace=True)
