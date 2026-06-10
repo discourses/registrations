@@ -29,19 +29,20 @@ class Data:
 
         try:
             block: dask.dataframe = dask.dataframe.read_csv(
-                self.__url, header=0, usecols=list(self.__dtype.keys()), dtype=self.__dtype)
+                self.__url, header=0, dtype=str)
         except OSError as err:
             raise err from err
 
         return block.compute()
 
-    def exc(self):
+    def exc(self) -> pd.DataFrame:
         """
 
         :return:
         """
 
         data = self.__get_data()
+        data = data[list(self.__dtype.keys())]
 
         data = data.assign(
             date_of_creation=pd.to_datetime(data['date_of_creation'], format='%Y-%m-%d'),
