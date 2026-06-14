@@ -32,8 +32,8 @@ class Population:
         data = src.functions.streams.Streams().read(text=text)
 
         # append the date form of each year
-        nanoseconds=pd.to_datetime(data['year'].astype(str) + '-01-01', format='%Y-%m-%d').astype(np.int64)
-        data = data.assign(milliseconds=(nanoseconds / 1e6).astype(np.int64))
+        microseconds=pd.to_datetime(data['year'].astype(str) + '-01-01', format='%Y-%m-%d').astype(np.int64)
+        data = data.assign(milliseconds=(microseconds / 1e3).astype(np.int64))
 
         return data
 
