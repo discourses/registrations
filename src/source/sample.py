@@ -30,8 +30,6 @@ class Sample:
 
     def __milliseconds(self, dates: pd.Series) -> np.ndarray:
         """
-        Or  &Rarr; <br>
-        milliseconds: np.ndarray = (__datetime.astype(np.int64) / 1e6).astype(np.int64)<br<<br>
 
         :param dates: Each instance/element encodes a firm incorporation date
         :return:
@@ -40,10 +38,10 @@ class Sample:
         datestr = dates.dt.strftime(self.__granularity.get(self.__cycle))
         __datetime: pd.Series = pd.to_datetime(datestr, format='%Y-%m-%d')
 
-        # the unit of the raw numeric value is nanoseconds, dividing by 10^6 converts it to ...
+        # the unit of the raw numeric value is microseconds, dividing by 10^3 converts it to ...
         milliseconds = __datetime.where(
-           __datetime.isnull(),
-            (__datetime.astype(np.int64) / 1e6))
+           __datetime.isnull(), (__datetime.astype(np.int64) / 1e3)
+        )
 
         # if pd.NaT, i.e., isnull(), which implies not a number
         milliseconds[milliseconds.isnull()] = np.nan
