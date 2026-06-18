@@ -1,9 +1,9 @@
 {
   "capita": {
-    "desc": "The cessations per capita and registrations per capita."
+    "desc": "rpc.json records registrations per capita."
   },
   "distributions": {
-    "desc": "The distributions of frequencies & percentages per industry sector w.r.t (with respect to) the standard industrial classification delineations."
+    "desc": "The distributions of frequencies & percentages per industry sector w.r.t (with respect to) the standard industrial classification categories."
   },
   "inventory": {
     "desc": "Company registrations per year, and per sector."
