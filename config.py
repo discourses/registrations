@@ -11,8 +11,6 @@ class Config:
 
     def __init__(self):
         """
-        self.data: str = os.path.join(os.getcwd(), 'data')
-        self.library: str = os.path.join(os.getcwd(), 'library')
 
         Constructor
         """
@@ -26,10 +24,18 @@ class Config:
         self.inventory_: str = os.path.join(self.warehouse, 'inventory')
         self.patterns_:str = os.path.join(self.warehouse, 'patterns')
 
+
         '''
         a year (seconds)
         '''
         self.year: float = 365.25 * 24 * 60 * 60
+
+
+        '''
+        A cloud storage prefix
+        '''
+        self.prefix = 'storage/registrations/'
+
 
         '''
         The names and tags of the discourses project

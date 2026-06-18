@@ -56,7 +56,7 @@ class Interface:
 
         # The strings for transferring data to Amazon S3 (Simple Storage Service)
         strings: pd.DataFrame = src.transfer.dictionary.Dictionary().exc(
-            path=self.__configurations.warehouse, extension='*', prefix='storage/registrations/')
+            path=self.__configurations.warehouse, extension='*', prefix=self.__configurations.prefix)
         if strings.empty:
             return ['Nothing to transfer.']
 
