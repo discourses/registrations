@@ -22,13 +22,13 @@ class Persist:
         self.__objects = src.functions.objects.Objects()
 
 
-    def __call__(self, patterns: dict | list[dict], section: str):
+    def __call__(self, partitions: dict | list[dict], section: str):
         """
 
-        :param patterns:
+        :param partitions:
         :param section:
         :return:
         """
 
         return self.__objects.write(
-            nodes=patterns, path=os.path.join(self.__configurations.distributions_, f'{section}.json'))
+            nodes=partitions, path=os.path.join(self.__configurations.distributions_, f'{section}.json'))

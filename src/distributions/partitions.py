@@ -1,14 +1,14 @@
-"""Module patterns.py"""
+"""Module partitions.py"""
 
 import pandas as pd
 
 import src.distributions.graphing
 
 
-class Patterns:
+class Partitions:
     """
 
-    Patterns
+    Partitions
     """
 
     def __init__(self, frequencies: pd.DataFrame, descriptions: dict):

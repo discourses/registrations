@@ -7,7 +7,7 @@ import pandas as pd
 
 import src.distributions.descriptions
 import src.distributions.menu
-import src.distributions.patterns
+import src.distributions.partitions
 import src.distributions.persist
 import src.distributions.sector
 import src.distributions.state
@@ -31,7 +31,7 @@ class Interface:
 
         self.__frequencies = src.patterns.frequencies.Frequencies(data=data).exc()
         self.__descriptions = src.distributions.descriptions.Descriptions(references=references).exc()
-        self.__patterns = dask.delayed(src.distributions.patterns.Patterns(
+        self.__partitions = dask.delayed(src.distributions.partitions.Partitions(
             frequencies=self.__frequencies, descriptions=self.__descriptions))
 
         # merging with codes reference sheet; code | section | division
@@ -69,8 +69,8 @@ class Interface:
             sector = __sector(excerpt=excerpt)
             active = __state(excerpt=excerpt, company_status='active')
             dissolved = __state(excerpt=excerpt, company_status='dissolved')
-            patterns = self.__patterns(sector=sector, active=active, dissolved=dissolved)
-            message = __persist(patterns=patterns, section=section)
+            partitions = self.__partitions(sector=sector, active=active, dissolved=dissolved)
+            message = __persist(partitions=partitions, section=section)
             computations.append(message)
         messages = dask.compute(computations, scheduler='processes')[0]
         logging.info(messages)

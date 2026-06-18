@@ -5,7 +5,6 @@ import os
 import pandas as pd
 
 import config
-import src.capita.cpc
 import src.capita.rpc
 import src.capita.population
 import src.functions.nodes
@@ -60,6 +59,3 @@ class Interface:
 
         rpc = src.capita.rpc.RPC(data=self.__data, population=population).exc()
         self.__persist(data=rpc, string='rpc')
-
-        cpc = src.capita.cpc.CPC(data=self.__data, population=population).exc()
-        self.__persist(data=cpc, string='cpc')
