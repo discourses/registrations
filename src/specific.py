@@ -1,6 +1,5 @@
 """Module specific.py"""
 
-import logging
 import sys
 
 import src.functions.cache
@@ -25,16 +24,14 @@ class Specific:
         :return:
         """
 
-        if isinstance(value, str):
-            _value = value
-        else:
+        if not isinstance(value, str):
             self.__cache.exc()
-            raise logging.error(msg=('The optional parameter --cycle expects a string; '
-                                     'annual: will set each creation date to its annual equivalent, '
-                                     'monthly: will set each creation date to its month equivalent '))
+            raise ValueError(('The optional parameter --cycle expects a string; '
+                              'annual: will set each creation date to its annual equivalent, '
+                              'monthly: will set each creation date to its month equivalent '))
 
-        if _value in {'annual', 'monthly'}:
-            return _value
+        if value in {'annual', 'monthly'}:
+            return value
 
         self.__cache.exc()
         sys.exit(('The optional parameter --cycle expects a string; '
