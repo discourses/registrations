@@ -30,5 +30,6 @@ class Percentages:
         percentages = percentages.assign(
             active = 100 * percentages['active']/percentages['all'],
             dissolved = 100 * percentages['dissolved']/percentages['all'])
+        percentages.sort_values(by='milliseconds', ascending=True, inplace=True)
 
         return percentages

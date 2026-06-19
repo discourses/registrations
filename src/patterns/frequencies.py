@@ -70,6 +70,6 @@ class Frequencies:
             self.__get_active(), how='left', on='milliseconds').merge(
             self.__get_dissolved(), how='left', on='milliseconds').merge(
             self.__get_all(), how='left', on='milliseconds')
-        frequencies = frequencies.copy().sort_values(by='milliseconds', ascending=True)
+        frequencies.sort_values(by='milliseconds', ascending=True, inplace=True)
 
         return frequencies
